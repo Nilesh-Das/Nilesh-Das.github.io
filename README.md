@@ -1,5 +1,5 @@
 # Portfolio - Nilesh Das
-This is a static portfolio made in html, css, jquery
+This is a static portfolio made in html, css, jquery.
 ## [nileshdas.me](https://nileshdas.me)
 
 ### [About](https://nileshdas.me#about) 
