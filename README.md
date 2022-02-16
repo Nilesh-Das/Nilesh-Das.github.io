@@ -1,17 +1,17 @@
 # Portfolio - Nilesh Das
 This is a static portfolio made in html, css, jquery.
-## [nileshdas.me](https://nileshdas.me)
+## [nileshdas.me](https://nilesh-das.github.io)
 
-### [About](https://nileshdas.me#about) 
+### [About](https://nilesh-das.github.io#about) 
 
-### [Work](https://nileshdas.me#work)
+### [Work](https://nilesh-das.github.io#work)
 
-### [Projects](https://nileshdas.me#projects)
+### [Projects](https://nilesh-das.github.io#projects)
 
-### [Contact](https://nileshdas.me#contact)
+### [Contact](https://nilesh-das.github.io#contact)
 
 # Future
 My Next.js portfolio build is in progress...
 
 # License
-MIT License 2021 (c) [Nilesh Das](LICENSE)
+MIT License 2022 (c) [Nilesh Das](LICENSE)
