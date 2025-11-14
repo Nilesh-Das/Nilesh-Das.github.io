@@ -22,8 +22,8 @@
   <!-- Home -->
   <article id="about" class="wrapper style1">
     <div class="container">
-      <div class="row">
-        <div class="col-4 col-5-large col-12-medium">
+      <div class="row aln-center">
+        <div class="col-4 col-4-large col-4-medium">
           <span class="image fit">
             <img class="profile-img" src="images/profile.jpg" alt="" />
           </span>
@@ -33,9 +33,9 @@
             <h1>Hi. I'm <strong>Nilesh Das</strong>.</h1>
           </header>
           <p class="motto">
-            I'm a Passionate Developer, Creator, and Artist.<br>
-            I'm a Final Year UnderGraduate at NIT, Raipur.<br>
-            I love making fun and interactive things with code.<br>
+            I’m a passionate developer, creator, and artist.<br>
+            I build scalable microservices and high-performance applications.<br>
+            I love crafting fun and interactive experiences with code.<br>
           </p>
           <a href="#work" class="button large scrolly">Learn about what I do</a>
         </div>
@@ -53,6 +53,13 @@
       <div class="row aln-center">
         <div class="col-4 col-6-medium col-12-small">
           <section class="box style1">
+            <span class="icon solid featured fa-book-open"></span>
+            <h3>Reading</h3>
+            <p>Exploring how modern science and technology are transforming our world.</p>
+          </section>
+        </div>
+        <div class="col-4 col-6-medium col-12-small">
+          <section class="box style1">
             <span class="icon solid featured fa-code"></span>
             <h3>Software Development</h3>
             <p>Design and create scalable applications using cutting-edge technologies</p>
@@ -60,14 +67,7 @@
         </div>
         <div class="col-4 col-6-medium col-12-small">
           <section class="box style1">
-            <span class="icon featured fa-keyboard"></span>
-            <h3>Competitive Programming</h3>
-            <p>Solve contest problems to refresh my knowledge of Data Structures and Algorithms</p>
-          </section>
-        </div>
-        <div class="col-4 col-6-medium col-12-small">
-          <section class="box style1">
-            <span class="icon featured fa-futbol"></span>
+            <span class="icon solid featured fa-futbol"></span>
             <h3>Sports</h3>
             <p>Workout regularly and staying healthy, and bring athleticism to my work</p>
           </section>
@@ -156,24 +156,27 @@
     <div class="container medium">
       <header>
         <h2>Have me make stuff for you.</h2>
-        <p>Contact me via mail or connect with social platforms</p>
+        <p>Contact me via mail or social platforms</p>
       </header>
       <div class="row">
         <div class="col-12">
-          <form method="post" action="#">
+          <form id="contact-form">
             <div class="row">
+              <input type="hidden" name="access_key" value="b43214cd-6018-43e0-9126-a02285a56aea">
               <div class="col-6 col-12-small">
-                <input type="text" name="name" id="name" placeholder="Name" />
+                <input type="text" name="name" id="name" placeholder="Name" required />
               </div>
               <div class="col-6 col-12-small">
-                <input type="text" name="email" id="email" placeholder="Email" />
+                <input type="email" name="email" id="email" placeholder="Email" required />
               </div>
               <div class="col-12">
-                <input type="text" name="subject" id="subject" placeholder="Subject" />
+                <input type="text" name="subject" id="subject" placeholder="Subject" required />
               </div>
               <div class="col-12">
-                <textarea name="message" id="message" placeholder="Message"></textarea>
+                <textarea name="message" id="message" placeholder="Message" required></textarea>
               </div>
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1">
+              <!-- <div class="h-captcha col-12" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark" data-captcha="true"></div> -->
               <div class="col-12">
                 <ul class="actions">
                   <li><input type="submit" value="Send Message" /></li>
@@ -182,28 +185,74 @@
               </div>
             </div>
           </form>
+
+          <p id="result"></p>
+
+          <script>
+            const form = document.getElementById('contact-form');
+            const result = document.getElementById('result');
+
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              
+              // Show loading state
+              result.innerHTML = "Sending...";
+              
+              const formData = new FormData(form);
+              const object = Object.fromEntries(formData);
+              const json = JSON.stringify(object);
+
+              try {
+                const res = await fetch("https://api.web3forms.com/submit", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                  body: json
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                  result.innerHTML = "Thank you! Your message has been sent.";
+                  result.style.color = "green";
+                  form.reset();
+                } else {
+                  result.innerHTML = "Oops! Something went wrong. Please try again.";
+                  result.style.color = "red";
+                }
+              } catch (error) {
+                result.innerHTML = "Network error. Please check your connection and try again.";
+                result.style.color = "red";
+              }
+            });
+
+            // Reset the result message when clearing the form
+            form.addEventListener('reset', () => {
+              result.innerHTML = "";
+              result.style.color = "";
+            });
+          </script>
         </div>
         <div class="col-12">
           <hr />
           <h3>Find me on</h3>
           <ul class="social">
             <li>
-              <a href="https://www.linkedin.com/in/nilesh-101-das/" target="_blank" class="icon brands fa-linkedin-in">
+              <a href="https://in.linkedin.com/in/nilesh101das" target="_blank" class="icon brands fa-linkedin-in">
                 <span class="label">LinkedIn</span>
               </a>
             </li>
             <li>
-              <a href="https://github.com/Nilesh-Das/" target="_blank" class="icon brands fa-github">
+              <a href="https://github.com/Nilesh-Das" target="_blank" class="icon brands fa-github">
                 <span class="label">Github</span>
               </a>
             </li>
             <li>
-              <a href="https://youtube.com/channel/UCZFiBtRPA0zrTxCrBT4jdGw/" target="_blank" class="icon brands fa-youtube">
+              <a href="https://youtube.com/@seaorz" target="_blank" class="icon brands fa-youtube">
                 <span class="label">YouTube</span>
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/NileshD75264747" target="_blank" class="icon brands fa-twitter">
+              <a href="https://x.com/imseaorz" target="_blank" class="icon brands fa-twitter">
                 <span class="label">Twitter</span>
               </a>
             </li>
@@ -213,7 +262,7 @@
       </div>
       <footer>
         <ul id="copyright">
-          <li>Nilesh Das • © 2022. All rights reserved.</li>
+          <li>Nilesh Das • © 2026. All rights reserved.</li>
         </ul>
       </footer>
     </div>
@@ -226,5 +275,6 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
+  <!-- <script src="https://web3forms.com/client/script.js" async defer></script> -->
 </body>
 </html>
