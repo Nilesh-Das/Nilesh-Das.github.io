@@ -1,14 +1,14 @@
 # Portfolio - Nilesh Das
 This is a static portfolio made in html, css, jquery.
-## [nilesh-das.github.io](https://nilesh-das.github.io)
+## [niledas.github.io](https://niledas.github.io)
 
-### [About](https://nilesh-das.github.io#about) 
+### [About](https://niledas.github.io#about) 
 
-### [Work](https://nilesh-das.github.io#work)
+### [Work](https://niledas.github.io#work)
 
-### [Projects](https://nilesh-das.github.io#projects)
+### [Projects](https://niledas.github.io#projects)
 
-### [Contact](https://nilesh-das.github.io#contact)
+### [Contact](https://niledas.github.io#contact)
 
 # Future
 My Next.js portfolio build is in progress...
